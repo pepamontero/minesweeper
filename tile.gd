@@ -13,10 +13,13 @@ func _ready():
 
 func set_number(n):
 	number = n
-
-func _on_button_pressed():
-	var mode = get_parent().flag_mode
-	reveal(mode)
+	
+func _on_button_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		var mode = get_parent().flag_mode
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			mode = true
+		reveal(mode)
 
 func disable(disabled = true): #if false, ables tile
 	$Button.disabled = disabled

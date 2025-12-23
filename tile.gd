@@ -15,7 +15,7 @@ func set_number(n):
 	number = n
 	
 func _on_button_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.is_released():
 		var mode = get_parent().flag_mode
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			mode = true

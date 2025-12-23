@@ -53,9 +53,13 @@ func reveal(flag_mode):
 			
 
 func _on_button_button_down():
+	if not revealed:
+		play("n0")
 	if revealed and not adyacents_revealed and not get_parent().is_safe(self):
 		get_parent().highlight_adyacents(self)
 		
 func _on_button_button_up():
+	if not revealed:
+		reveal(get_parent().flag_mode)
 	if revealed and not adyacents_revealed and not get_parent().is_safe(self):
 		get_parent().unhighlight_adyacents(self)

@@ -63,7 +63,7 @@ func _on_button_gui_input(event: InputEvent) -> void:
 					reveal(true) #Flaging
 			elif event.button_index == MOUSE_BUTTON_LEFT:
 				# If right click, act as current mode
-					reveal(get_parent().flag_mode)
-					if revealed and not adyacents_revealed and not get_parent().is_safe(self):
-						get_parent().unhighlight_adyacents(self)
+				reveal(get_parent().flag_mode)
+				if revealed and not adyacents_revealed and not get_parent().is_safe(self):
+					get_parent().unhighlight_adyacents(self)
 	

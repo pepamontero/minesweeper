@@ -50,9 +50,9 @@ func _on_button_gui_input(event: InputEvent) -> void:
 		if $Button.disabled: #Avoid playing on Game Over
 			return
 		if event.is_pressed():
-			if event.button_index == MOUSE_BUTTON_LEFT:
-				if not revealed:
+			if not revealed:
 					play("n0")
+			if event.button_index == MOUSE_BUTTON_LEFT:
 				if revealed and not adyacents_revealed and not get_parent().is_safe(self):
 					get_parent().highlight_adyacents(self)
 		if event.is_released(): 

@@ -43,20 +43,7 @@ func reveal(flag_mode):
 		if get_parent().is_safe(self):
 			adyacents_revealed = true
 			get_parent().reveal_adyacents(self)
-			
-"""
-func _on_button_button_down():
-	if not revealed:
-		play("n0")
-	if revealed and not adyacents_revealed and not get_parent().is_safe(self):
-		get_parent().highlight_adyacents(self)
-		
-func _on_button_button_up():
-	if not revealed:
-		reveal(get_parent().flag_mode)
-	if revealed and not adyacents_revealed and not get_parent().is_safe(self):
-		get_parent().unhighlight_adyacents(self)
-"""
+
 		
 func _on_button_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -75,8 +62,7 @@ func _on_button_gui_input(event: InputEvent) -> void:
 				if not revealed:
 					reveal(true) #Flaging
 			elif event.button_index == MOUSE_BUTTON_LEFT:
-					if not revealed:
-						reveal(get_parent().flag_mode)
+					reveal(get_parent().flag_mode)
 					if revealed and not adyacents_revealed and not get_parent().is_safe(self):
 						get_parent().unhighlight_adyacents(self)
 	

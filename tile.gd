@@ -51,7 +51,7 @@ func _on_button_gui_input(event: InputEvent) -> void:
 			return
 		if event.is_pressed():
 			if not revealed:
-					play("n0")
+				play("n0")
 			if event.button_index == MOUSE_BUTTON_LEFT:
 				if revealed and not adyacents_revealed and not get_parent().is_safe(self):
 					get_parent().highlight_adyacents(self)

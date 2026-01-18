@@ -168,7 +168,6 @@ animations = [{
 scale = Vector2(1.081, 1.081)
 sprite_frames = SubResource("SpriteFrames_pi1cm")
 script = ExtResource("2_ie3hv")
-metadata/_edit_group_ = true
 
 [node name="Button" type="Button" parent="."]
 offset_left = -17.0
@@ -181,4 +180,6 @@ flat = true
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
 [connection signal="gui_input" from="Button" to="." method="_on_button_gui_input"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

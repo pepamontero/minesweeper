@@ -1,5 +1,7 @@
 extends AnimatedSprite2D
 
+@onready var area : Area2D = $TileArea
+
 @export var number = 1
 #var mode = "normal" # or "flag"
 var flagged = false
@@ -7,6 +9,7 @@ var revealed = false
 var adyacents_revealed = false
 var i = 0
 var j = 0
+var selected = false
 
 func _ready():
 	play("default")
@@ -56,8 +59,10 @@ func _on_button_gui_input(event: InputEvent) -> void:
 				# If on mouse bottom left, regardless of mode, highlight adyacent tiles of unsafe tiles
 				if revealed and not adyacents_revealed and not get_parent().is_safe(self):
 					get_parent().highlight_adyacents(self)
-		if event.is_released(): 
-			if event.button_index == MOUSE_BUTTON_RIGHT:
+		if event.is_released():
+			if not selected:
+				play("default")
+			elif event.button_index == MOUSE_BUTTON_RIGHT:
 				# If right click, always use flag mode
 				if not revealed:
 					reveal(true) #Flaging
@@ -67,3 +72,9 @@ func _on_button_gui_input(event: InputEvent) -> void:
 				if revealed and not adyacents_revealed and not get_parent().is_safe(self):
 					get_parent().unhighlight_adyacents(self)
 	
+
+func _on_button_mouse_entered() -> void:
+	selected = true
+
+func _on_button_mouse_exited() -> void:
+	selected = false
